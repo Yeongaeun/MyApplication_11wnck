@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/maintext"
+        android:layout_width="316dp"
+        android:layout_height="138dp"
+        android:textSize="36sp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.846" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="메뉴"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="287dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/menu02Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:gravity="center"
+        android:text="굴리기"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="339dp"
+        tools:ignore="MissingConstraints" />
+
+    app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="HardcodedText" />
+    button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+    //주사위 숫자 최초 0선언
+    int dicenum = 0;
+
+    //Random 함수 선언
+    Random random = new Random();
+
+    //random수 생성하여 dicenum에 입력
+    dicenum = random.nextInt(6)+1;
+    //+1의 이유 : 0부터 6개 0~5를 가져오므로 +1을 해주어
+    //1~6사이의 숫자를 가져올 수 있도록 함
+
+    //추출한 dicenum을 maintext에 출력
+    maintext.setText(String.valueOf(dicenum));
+    }
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
